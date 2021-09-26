@@ -1,5 +1,5 @@
 {
-      "body":{
+      "user":{
         "first_name": "Jane",
         "last_name": "Doe",
         "token": "my_user_01",
@@ -32,5 +32,13 @@
           "authentication_answer2": "Trabant",
           "authentication_answer3": "Blue"
         }
-}
+},
+"auth" :{
+  "username": "79822dad-5774-462d-81b4-2a1f843bd019",
+  "password": "727d2d91-e188-4424-8761-234262d993fe"
+},
+"card":{                    
+  "user_token": "my_user_01",
+  "card_product_token": "034f8d3f-209c-4c94-a294-cda4d6f90c47"
+} 
 }
