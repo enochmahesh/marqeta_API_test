@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-09-26T05:50:59.696Z",
+    "end": "2021-09-26T05:51:02.407Z",
+    "duration": 2711,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b336cf36-521a-4587-8c70-e1433d1918df",
+      "title": "",
+      "fullFile": "cypress/integration/marqeta_api.js",
+      "file": "cypress/integration/marqeta_api.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "941b6152-bfd8-4668-bd6e-f44516a6be70",
+          "title": "Marqeta APIs Test Automation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create user",
+              "fullTitle": "Marqeta APIs Test Automation Create user",
+              "timedOut": null,
+              "duration": 1229,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: \"/users\",\n  method: \"POST\",\n  body: {\n    \"first_name\": \"Jane\",\n    \"last_name\": \"Doe\",\n    \"token\": \"my_user_01\",\n    \"email\": \"enoch1@yopmail.com\",\n    \"password\": \"P@ssw0rd\",\n    \"identifications\": [{\n      \"type\": \"SSN\",\n      \"value\": \"111234444\"\n    }],\n    \"birth_date\": \"1991-01-01\",\n    \"address1\": \"1234 Grove Street\",\n    \"city\": \"Berkeley\",\n    \"state\": \"CA\",\n    \"country\": \"USA\",\n    \"postal_code\": \"94702\",\n    \"phone\": \"5105551212\",\n    \"gender\": \"F\",\n    \"uses_parent_account\": false,\n    \"metadata\": {\n      \"key1\": \"value1\",\n      \"key2\": \"value2\",\n      \"notification_email\": \"enoch1@yopmail.com\",\n      \"notification_language\": \"spa\",\n      \"authentication_question1\": \"What was your first job?\",\n      \"authentication_question2\": \"What make was your first car?\",\n      \"authentication_question3\": \"What is your favorite color?\",\n      \"authentication_answer1\": \"Cashier\",\n      \"authentication_answer2\": \"Trabant\",\n      \"authentication_answer3\": \"Blue\"\n    }\n  },\n  auth: {\n    \"username\": \"79822dad-5774-462d-81b4-2a1f843bd019\",\n    \"password\": \"727d2d91-e188-4424-8761-234262d993fe\"\n  }\n}).then(resp => {\n  expect(resp.status).to.eq(201);\n});",
+              "err": {},
+              "uuid": "7306406f-9744-4fe5-83f0-40b42006f3c9",
+              "parentUUID": "941b6152-bfd8-4668-bd6e-f44516a6be70",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Card",
+              "fullTitle": "Marqeta APIs Test Automation Create Card",
+              "timedOut": null,
+              "duration": 882,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: \"/cards\",\n  method: \"POST\",\n  body: {\n    \"user_token\": \"my_user_01\",\n    \"card_product_token\": \"034f8d3f-209c-4c94-a294-cda4d6f90c47\"\n  },\n  auth: {\n    \"username\": \"79822dad-5774-462d-81b4-2a1f843bd019\",\n    \"password\": \"727d2d91-e188-4424-8761-234262d993fe\"\n  }\n}).then(resp => {\n  expect(resp).property('status').to.equal(201);\n  ctoken = resp.body.token;\n  cy.log(ctoken);\n});",
+              "err": {},
+              "uuid": "02daf2ab-cb4a-40d0-8aaa-a303caf4daac",
+              "parentUUID": "941b6152-bfd8-4668-bd6e-f44516a6be70",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Transaction",
+              "fullTitle": "Marqeta APIs Test Automation Create Transaction",
+              "timedOut": null,
+              "duration": 582,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  url: \"/simulate/authorization\",\n  method: \"POST\",\n  body: {\n    \"amount\": \"10\",\n    \"mid\": \"123456890\",\n    \"card_token\": ctoken\n  },\n  auth: {\n    \"username\": \"79822dad-5774-462d-81b4-2a1f843bd019\",\n    \"password\": \"727d2d91-e188-4424-8761-234262d993fe\"\n  }\n}).then(resp => {\n  expect(resp.status).to.eq(201);\n  cy.log('Token for card is :' + ctoken);\n});",
+              "err": {},
+              "uuid": "2970363e-53c6-413b-9cf2-083b730247d8",
+              "parentUUID": "941b6152-bfd8-4668-bd6e-f44516a6be70",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7306406f-9744-4fe5-83f0-40b42006f3c9",
+            "02daf2ab-cb4a-40d0-8aaa-a303caf4daac",
+            "2970363e-53c6-413b-9cf2-083b730247d8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2693,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "marqeta_API_test",
+  "version": "1.0.0",
+  "description": "Created for the case study for API automation for Nimi",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enochmahesh/marqeta_API_test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enochmahesh/marqeta_API_test/issues"
+  },
+  "homepage": "https://github.com/enochmahesh/marqeta_API_test#readme",
+  "dependencies": {
+    "cypress": "^8.4.1"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^2.3.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "mocha": "^9.1.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0"
+  },
+  "scripts": {   
+    "clean:reports": "rmdir /S /Q cypress\\reports && mkdir cypress\\reports&& mkdir cypress\\reports\\mochareports",
+    "pretest": "npm run clean:reports",
+    "scripts": "cypress run",
+    "combine-reports": "mochawesome-mergecypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "test" : "npm run scripts || npm run posttest"     
+
+  }
+}

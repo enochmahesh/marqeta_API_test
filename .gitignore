@@ -1,0 +1,6 @@
+node_modules/
+videos/
+screenshots/
+package-lock.json/
+cypress.env.json/
+index.html
